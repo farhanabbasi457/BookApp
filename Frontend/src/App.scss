@@ -1,0 +1,594 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+$bg: rgb(16, 16, 16);
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto";
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    //  border: 1px solid red;
+}
+
+a,
+h2 {
+    color: white;
+}
+
+h3 {
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 100px;
+    background-color: $bg;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem;
+    justify-content: left;
+
+    >img {
+        cursor: pointer;
+        height: 145%;
+        margin-top: 0px;
+        margin-left: -20px;
+
+    }
+
+    >div {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+
+        >a {
+            margin: 2vmax;
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+    }
+
+    >h1 {
+        color: white;
+    }
+}
+
+
+.copyright {
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 14px;
+}
+
+
+.imgtitle {
+    background-color: white;
+}
+
+.user {
+    min-height: 550px;
+    width: 100%;
+    background-color: white;
+
+    .searchbar {
+        width: 600px;
+        height: 60px;
+        background-color: $bg;
+        color: rgb(255, 255, 255);
+        margin-left: 23%;
+        position: absolute;
+        top: 3%;
+        border-radius: 20px;
+        border: 1px solid white;
+
+
+        >input {
+            background-color: $bg;
+            border: 1px solid $bg;
+            text-decoration: none;
+            color: white;
+            width: 90%;
+            height: 30px;
+            text-align: left;
+            margin-top: 15px;
+            margin-left: 10px;
+            font-weight: bold;
+            outline: none;
+
+        }
+
+        .iconbutton {
+            float: right;
+            font-size: 1.8rem;
+            margin-top: 13px;
+            margin-right: 10px;
+            cursor: pointer;
+
+        }
+    }
+    .user-admin{
+        background-color: black;
+        color: white;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 300;
+        text-align: center;
+        padding: 20px 0px;
+        border: 1px solid white;
+
+    }
+    .row {
+        color: $bg;
+        background-color: white;
+        text-align: center;
+
+        >h2 {
+            height: 100px;
+            font-weight: 400;
+            color: rgba(187, 171, 171, 0.612);
+            -webkit-text-stroke: rgb(44, 36, 36) 3px ;
+            font-weight: bold;
+            font-size: 40px;
+            padding-top: 5%;
+            background-color: transparent;
+            // margin-right: 0.8rem;
+            text-align: center;
+            letter-spacing: 5px;
+            float: left;
+            // margin-top: 100px;
+            width: 200px;
+            >img{
+                width: 200px;
+                height: 200px;
+                border-radius: 40px;
+                background-color: none;
+
+            }
+        }
+
+        >.card-img {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: transparent;
+            padding-left: 2%;
+            padding: 0.7rem;
+            margin-top: 30px;
+            transition: linear 0.3s; //x-axis me se auto slidebar bn jaaye ga or overflow nai ho ga data
+            p{
+                margin: 10rem;
+                font-size: 30px;
+                font-style: bold;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .card {
+        width: 200px;
+        height: 250px;
+        margin: 0.3rem;
+        background-color: white;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-10px) scale(1.05);
+            transition: linear 0.3s;
+        }
+
+    }
+
+}
+
+
+.about {
+    min-height: 550px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.loginpage {
+    width: 100%;
+    height: 620px;
+    background-color: white;
+    .login{
+        width: 450px;
+        height: 500px;
+        position: absolute;
+        top: 150px;
+        margin-left: 35%;
+        border-radius: 1.3rem;
+        >img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px;
+            margin-left: 40%;
+            text-align: center;
+        }
+        >form{
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+    
+            >input{
+                margin: 20px 5px;
+                height: 60px;
+                font-size: 20px;
+                outline: none;
+                background-color: transparent;
+                border: white 1px solid;
+    
+            }
+            .buttons{
+                display: flex;
+                flex-direction:row ;
+                justify-content: space-around;
+                >button{
+                    width: 90px;
+                    height: 40px;
+                    background-color:black ;
+                    color: white;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    margin-top: 2rem;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+        .signupbutton{
+            display:flex ;
+            flex-direction: row;
+            margin-top: 60px;
+            margin-left: 10px;
+            >button{
+                    width: 90px;
+                    height: 40px;
+                    font-size: 16px;
+                    text-decoration: none;
+                    background-color: transparent;
+                    border: none;
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-top: -0.7rem;
+                    margin-left: 2rem;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.6;
+                    }
+            }
+        }
+    }
+}
+
+.signuppage {
+    width: 100%;
+    height: 620px;
+    background-color: white;
+    .signup{
+        width: 450px;
+        height: 500px;
+        position: absolute;
+        top: 150px;
+        margin-left: 35%;
+        border-radius: 1.3rem;
+        >img{
+            width: 50%;
+            height: 80px;
+            margin: 10px;
+            margin-left: 100px;
+            text-align: center;
+        }
+        >form{
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            >label{
+                font-size: 22px;
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                color: rgb(33, 30, 30);
+            }
+            >input{
+                margin: 15px 5px;
+                height: 35px;
+                font-size: 20px;
+                outline: none;
+                background-color: transparent;
+                border: white 1px solid;
+    
+            }
+            .buttons{
+                display: flex;
+                flex-direction:row ;
+                justify-content: space-around;
+                >button{
+                    width: 90px;
+                    height: 40px;
+                    background-color:black ;
+                    color: white;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    margin-top: 0.7rem;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.about-page{
+    img{
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        margin: 50px 0;
+        text-align: center;
+    }
+    h2{
+        color: black;
+        margin: 40px 0 10px 5px;
+    }
+    p{
+        font-size: 20px; 
+        color: rgb(32, 30, 30);
+        margin: 20px 0 0 5px;
+        >img{
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-bottom: -10px;
+            margin-right: 10px;
+        }
+    }
+    ul{
+        margin-top: 10px;
+        li{
+            font-size: 16px;
+            margin-left: 100px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            >img{
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                margin-bottom: -20px;
+                margin-right: 10px;
+            }
+        }
+        
+    }
+}
+#plast{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.bookd{
+    width: 50%;
+    min-height: 600px;
+
+    >div{
+        display: flex;
+        .imgdiv{
+            >img{
+            width: 350px;
+            height: 400px;
+            margin: 0.9rem;
+            border-radius: 5%;
+            margin-left: 250px;
+            }
+            
+        }
+        .nextdet{
+            >h2{
+                color: black;
+                margin-top: 120px;
+                margin-left: 100px;
+                font-size: 40px;
+            }
+            >p{
+                margin-top: 20px;
+                margin-left: 100px;
+                font-size: 18px;
+                width: 500px;
+
+            }
+        }
+    }
+    .pdf{
+        >h2{
+            color: black;
+            margin: 70px 0 40px 0;
+            font-size: 30px;
+        }
+        >iframe{
+        width: 150%;
+        height: 1000px;
+        font-size: 18px;
+        margin-top: 100px;
+        margin-left: 200px;
+        }
+        
+
+    }
+}
+
+.row {
+    color: $bg;
+    background-color: white;
+    text-align: center;
+
+    >h2 {
+        height: 100px;
+        font-weight: 400;
+        color: rgba(187, 171, 171, 0.612);
+        -webkit-text-stroke: rgb(44, 36, 36) 3px ;
+        font-weight: bold;
+        font-size: 40px;
+        background-color: transparent;
+        text-align: center;
+        letter-spacing: 5px;
+        float: left;
+        // margin-top: 100px;
+        width: 200px;
+        >img{
+            width: 200px;
+            height: 200px;
+            border-radius: 40px;
+            background-color: none;
+
+        }
+    }
+
+    >.card-img {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: transparent;
+        padding-left: 2%;
+        padding: 0.7rem;
+        margin-top: 30px;
+        transition: linear 0.3s; //x-axis me se auto slidebar bn jaaye ga or overflow nai ho ga data
+        .name{
+            background-color: black;
+            color: white;
+            border: 1px solid ;
+            border-radius: 7px ;
+            width: 120px;
+            height: 60px;
+            text-align: center;
+            align-content: center;
+            font-size: 26px;
+            margin:150px 10px 150px;
+        
+        
+        }
+    }
+}
+
+.card {
+    width: 200px;
+    height: 250px;
+    margin: 0.3rem;
+    background-color: white;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-10px) scale(1.05);
+        transition: linear 0.3s;
+    }
+
+}
+.empty{
+    width: 100%;
+    height: 60px;
+}
+button{
+    width: 120px;
+    height: 40px;
+    background-color:black ;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top  : -20%;
+    margin-left: 2rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.6;
+    }
+}
+#h1{
+    text-align: center;
+    margin:60px 0px;
+    padding-top: 20px;
+}
+#h2{
+    font-size: 30px;
+    margin:60px 0px;
+    padding-top: 20px;
+}
+.signupbutton{
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    
+}
+.pdf{
+    width: 200%;
+    background-color: #bebebe;
+}
+#if{
+    min-width:80px;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bolder;
+    height: 30px;
+    align-items: center;
+    padding: 0px 5px;
+}
+.search-options{
+    background: $bg;
+    color: white;
+    font-weight: 100;
+    padding-left:450px ;
+    padding-bottom: 20px;
+
+    label{
+        margin-left: 40px;
+    }
+}
+.card-img{
+    div{
+        cursor: pointer;
+    }
+}
+.bookmarkIcon{
+    width: 60px;
+    height: 40px;
+    margin-left: 180%;
+}
+.file{
+    margin-left: 20%;
+    margin-right: 30%;
+    padding-top: 20px;
+    background-color: #bebebe;
+    
+}
+.pgnum{
+    font-size: 16px;
+    color: black;
+    margin-top: -30px;
+    text-align: center;
+}
+.react-pdf__Page {
+    margin-bottom: 50px;
+}
