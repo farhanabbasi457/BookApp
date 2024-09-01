@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Addcategory = () => {
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
       console.log(hashedPassword);
-      const response = await axios.post('http://localhost:2000/user', {
+      const response = await axios.post(`${BaseUrl}/user`, {
         name,
         email,
         password:hashedPassword,

@@ -7,6 +7,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { Outlet } from 'react-router-dom';
+import BaseUrl from '../../BaseUrl';
 
 function Admin() {
   const { state } = useLocation();
@@ -35,7 +36,7 @@ function Admin() {
   ];
 
   const navigate = useNavigate();
-  const halfimgpath = "http://localhost:2000//";
+  const halfimgpath = `${BaseUrl}//`;
   const [allbooks, setBooks] = useState([]);
   const [categoryBooks, setCategoryBooks] = useState([]);
   const [Authors, setAuthors] = useState([]);
@@ -48,7 +49,7 @@ function Admin() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data:{message} } = await axios.get(`http://localhost:2000/books`);
+        const { data:{message} } = await axios.get(`${BaseUrl}/books`);
         setBooks(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -56,7 +57,7 @@ function Admin() {
     };
     const fetchCategoryData = async () => {
       try {
-        const { data:{message} } = await axios.get(`http://localhost:2000/category`);
+        const { data:{message} } = await axios.get(`${BaseUrl}/category`);
         setCategoryBooks(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -64,7 +65,7 @@ function Admin() {
     };
     const fetchAuthor = async () => {
       try {
-        const { data:{message} } = await axios.get(`http://localhost:2000/author`);
+        const { data:{message} } = await axios.get(`${BaseUrl}/author`);
         setAuthors(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -72,7 +73,7 @@ function Admin() {
     };
     const fetchUsers = async () => {
       try {
-        const { data:{message} } = await axios.get(`http://localhost:2000/user/user`);
+        const { data:{message} } = await axios.get(`${BaseUrl}/user/user`);
         setUsers(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -107,11 +108,11 @@ function Admin() {
         window.scrollTo(0, 600);
         let response;
         if (searchType === "book") {
-          response = await axios.get(`http://localhost:2000/books/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/books/${searchQuery}`);
         } else if (searchType === "category") {
-          response = await axios.get(`http://localhost:2000/category/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/category/${searchQuery}`);
         } else if (searchType === "author") {
-          response = await axios.get(`http://localhost:2000/author/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/author/${searchQuery}`);
         }
         
         const searchResults = response?.data?.message;

@@ -6,6 +6,7 @@ import { IoStarSharp } from "react-icons/io5";
 import axios from 'axios';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
+import BaseUrl from '../../BaseUrl';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -23,17 +24,17 @@ const Bookdetail = () => {
 
 
   const photo = author.photo ? author.photo.replace("public\\", "") : '';
-  const halfpath = "http://localhost:2000/";
+  const halfpath = `${BaseUrl}/`;
   const fullpath = halfpath + photo;
 
 
   const handleOnclickIcon = async () => {
     try {
       console.log(pageNumber);
-      const getresp = await axios.get(`http://localhost:2000/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
+      const getresp = await axios.get(`${BaseUrl}/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
 
       if (getresp.data.message === 1) {
-        const response = await axios.post("http://localhost:2000/bookmark", {
+        const response = await axios.post(`${BaseUrl}/bookmark`, {
           user_ID: person1._id,
           book_ID: id,
           page_number: pageNumber
@@ -59,7 +60,7 @@ const Bookdetail = () => {
   }
   const handleOnclickIcon2 = async () => {
     try {
-      const getresp = await axios.delete(`http://localhost:2000/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
+      const getresp = await axios.delete(`${BaseUrl}/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
       if (getresp.data.message === 1) {
         alert("Bookmark Removed");
         setcheck(false);
@@ -94,10 +95,10 @@ const Bookdetail = () => {
 
     try {
       console.log("pages hitory", paging)
-      const getresp = await axios.get(`http://localhost:2000/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
+      const getresp = await axios.get(`${BaseUrl}/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
       if(getresp.data.message === 0){
         console.log("Post",paging);
-        const getresp1 = await axios.post(`http://localhost:2000/readinghistory`, {
+        const getresp1 = await axios.post(`${BaseUrl}/readinghistory`, {
         user_ID: person1._id,
         book_ID: id,
         start_time: start_time,
@@ -113,7 +114,7 @@ const Bookdetail = () => {
       }
       else{
         console.log("Update",paging);
-        const getresp1 = await axios.put(`http://localhost:2000/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`, {
+        const getresp1 = await axios.put(`${BaseUrl}/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`, {
         user_ID: person1._id,
         book_ID: id,
         start_time: start_time,
@@ -155,7 +156,7 @@ const Bookdetail = () => {
     window.scrollTo(0, 0);
     const tempfunct = async () => {
       try {
-        const getresp = await axios.get(`http://localhost:2000/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
+        const getresp = await axios.get(`${BaseUrl}/bookmark?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
         if (getresp.data.message === 0) {
           setcheck(true);
         }
@@ -171,7 +172,7 @@ const Bookdetail = () => {
     }
     const tempfunct2 = async () => {
       try {
-        const getresp = await axios.get(`http://localhost:2000/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
+        const getresp = await axios.get(`${BaseUrl}/readinghistory?user_ID=${person1._id}&book_ID=${encodeURIComponent(id)}`);
         if (getresp.data.message === 0) {
           console.log("No History Found. Book Start From Page 1");
         }

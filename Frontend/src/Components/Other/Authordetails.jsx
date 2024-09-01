@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bookrack from "../Images/bookrack.png";
+import BaseUrl from '../../BaseUrl';
 
 const Authordetails = () => {
   const { state } = useLocation();
   const { name, id,person } = state || {};
 
   const navigate = useNavigate();
-  const halfimgpath = "http://localhost:2000//";
+  const halfimgpath = `${BaseUrl}//`;
   const [allbooks, setBooks] = useState([]);
   const [authors1, setAuthors] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/books`);
+        const { data: { message } } = await axios.get(`${BaseUrl}/books`);
         const filteredBooks = message.filter(book => book.author_ID._id === id);
         setBooks(filteredBooks);
       } catch (error) {
@@ -25,7 +26,7 @@ const Authordetails = () => {
 
     const fetchAuthorData = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/author`);
+        const { data: { message } } = await axios.get(`${BaseUrl}/author`);
         setAuthors(message);
       } catch (error) {
         console.error('Error fetching data:', error);

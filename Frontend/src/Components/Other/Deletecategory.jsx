@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Addcategory = () => {
 
 
     try {
-      const response = await axios.delete(`http://localhost:2000/category/${name}`);
+      const response = await axios.delete(`${BaseUrl}/category/${name}`);
 
       if (response.data.message === 1) {
         alert('Category Deleted Successfully');

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import bcrypt from 'bcryptjs';
 import { useUser } from '../Other/UserContext'; // Adjust import path as needed
+import BaseUrl from '../../BaseUrl';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get('http://localhost:2000/user');
+      const response = await axios.get(`${BaseUrl}/user`);
       const users = response.data.message;
 
       const user = users.find(user => user.email === email && user.state === "user");

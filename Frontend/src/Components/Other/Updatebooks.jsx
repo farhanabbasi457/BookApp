@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -17,8 +18,8 @@ const Addcategory = () => {
   useEffect(() => {
     const fetchAuthorsAndCategories = async () => {
       try {
-        const authorsResponse = await axios.get('http://localhost:2000/author');
-        const categoriesResponse = await axios.get('http://localhost:2000/category');
+        const authorsResponse = await axios.get(`${BaseUrl}/author`);
+        const categoriesResponse = await axios.get(`${BaseUrl}/category`);
         setAuthors(authorsResponse.data.message);
         setCategories(categoriesResponse.data.message);
       } catch (error) {
@@ -41,7 +42,7 @@ const Addcategory = () => {
     formData.append('category_ID', selectedCategory);
 
     try {
-      const response = await axios.put(`http://localhost:2000/books/${title}`, formData, {
+      const response = await axios.put(`${BaseUrl}/books/${title}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

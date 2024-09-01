@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Addcategory = () => {
 
     try {
       console.log(name,biography,photo);
-      const response = await axios.post('http://localhost:2000/author/post',formData
+      const response = await axios.post(`${BaseUrl}/author/post`,formData
     );
 
       if (response.status === 200) {

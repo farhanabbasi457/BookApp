@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Addcategory = () => {
 
 
     try {
-      const response = await axios.delete(`http://localhost:2000/user/${email}`);
+      const response = await axios.delete(`${BaseUrl}/user/${email}`);
 
       console.log(response.data.message);
       if (response.data.message === 1 ) {

@@ -6,6 +6,7 @@ import 'react-slideshow-image/dist/styles.css';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import BaseUrl from '../../BaseUrl';
 
 function UserLog() {
   const { state } = useLocation();
@@ -35,7 +36,7 @@ function UserLog() {
   ];
 
   const navigate = useNavigate();
-  const halfimgpath = "http://localhost:2000/";
+  const halfimgpath = `${BaseUrl}/`;
   const [allbooks, setBooks] = useState([]);
   const [categoryBooks, setCategoryBooks] = useState([]);
   const [Authors, setAuthors] = useState([]);
@@ -47,7 +48,7 @@ function UserLog() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/books`);
+        const { data: { message } } = await axios.get(`${BaseUrl}/books`);
         setBooks(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -55,7 +56,7 @@ function UserLog() {
     };
     const fetchCategoryData = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/category`);
+        const { data: { message } } = await axios.get(`${BaseUrl}/category`);
         setCategoryBooks(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -63,7 +64,7 @@ function UserLog() {
     };
     const fetchAuthor = async () => {
       try {
-        const { data: { message } } = await axios.get(`http://localhost:2000/author`);
+        const { data: { message } } = await axios.get(`${BaseUrl}/author`);
         setAuthors(message);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -96,11 +97,11 @@ function UserLog() {
         window.scrollTo(0, 600);
         let response;
         if (searchType === "book") {
-          response = await axios.get(`http://localhost:2000/books/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/books/${searchQuery}`);
         } else if (searchType === "category") {
-          response = await axios.get(`http://localhost:2000/category/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/category/${searchQuery}`);
         } else if (searchType === "author") {
-          response = await axios.get(`http://localhost:2000/author/${searchQuery}`);
+          response = await axios.get(`${BaseUrl}/author/${searchQuery}`);
         }
         
         setFilteredBooks(response.data.message);

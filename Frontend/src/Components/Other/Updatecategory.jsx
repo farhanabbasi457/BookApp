@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Addcategory = () => {
 
 
     try {
-      const response = await axios.put(`http://localhost:2000/category/${name}`, {
+      const response = await axios.put(`${BaseUrl}/category/${name}`, {
         name,
         description,
       });

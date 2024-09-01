@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Addcategory = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Addcategory = () => {
     formData.append('photo', photo);
 
     try {
-      const response = await axios.put(`http://localhost:2000/author/${name}`, formData, {
+      const response = await axios.put(`${BaseUrl}/author/${name}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

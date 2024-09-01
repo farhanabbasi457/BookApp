@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 const Deleteitem = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Deleteitem = () => {
     event.preventDefault();
 
     try {
-        const response = await axios.delete(`http://localhost:2000/books/${name}`);
+        const response = await axios.delete(`${BaseUrl}/books/${name}`);
 
       if (response.data.message === 1) {
         alert("Item Deleted Successfully");
